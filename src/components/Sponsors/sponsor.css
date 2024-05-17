@@ -1,0 +1,31 @@
+.sponsor{
+    background-color: var(--faq-bg-color);
+    padding:70px 50px;
+    margin-bottom: 30px;
+} 
+.sponsor-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;    
+    flex-wrap: wrap;
+   
+}
+.sponsor-wrapper img{
+    opacity: .7;
+    cursor: pointer;
+    transition: .2s;
+}
+.sponsor-wrapper img:hover{
+    opacity: 1;
+
+}
+
+@media (max-width: 1280px){
+    .sponsor{
+        padding:30px 20px;
+    }
+    .sponsor-wrapper{
+        row-gap: 2rem;
+    }
+}

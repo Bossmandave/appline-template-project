@@ -1,0 +1,127 @@
+.footer{
+    background-color:var(--faq-bg-color);
+}
+
+.footer p{
+    
+    color: rgb(121 128 138 );
+    font-size: 1.07rem;
+    transition: .2s;
+}
+.footer .footer-wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 20px;
+}
+.footer .footer-wrapper .footer-left p{
+    width: 60%;
+    margin-top: 35px;
+}
+
+.footer .footer-wrapper .footer-right{
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+.footer .footer-wrapper .footer-right h2{
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+.footer .footer-wrapper .footer-right p{
+    cursor: pointer;
+}
+.footer .footer-wrapper .footer-right p:hover{
+    color: rgb(112 131 245 );
+}
+.footer .footer-wrapper .footer-right .ft-resources{
+    margin-left: 30px;
+}
+
+.footer .footer-wrapper .footer-right .ft-tutorial{
+    margin-left: 30px;
+    width: max-content;
+}
+
+.footer .footer-wrapper .footer-right .ft-about{
+    width: max-content;
+}
+
+.footer .footer-bottom{
+    background-color: var(--footer-bg-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 0;
+}
+
+.footer .footer-bottom .footer-links{
+    font-size: 1.5rem;
+    display: flex;
+    gap: 20px;
+    opacity: .7;
+    transition: .2s;
+    cursor: pointer;
+}
+.footer .footer-bottom .footer-links:hover{
+    opacity: 1;
+}
+.footer .footer-bottom p{
+    color: white;
+}
+.footer .footer-bottom .policy{
+    display: flex;
+    gap: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px){
+    .footer .footer-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        justify-content: center;
+        padding: 80px 20px;
+    }
+
+    .footer .footer-wrapper .footer-right .ft-resources{
+        margin-left: 35px;
+    }
+    
+    .footer .footer-wrapper .footer-right .ft-tutorial{
+        margin-left: 35px;
+    }
+    .footer .footer-bottom{
+        gap: 10px;
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 767px){
+    .footer .footer-wrapper .footer-right{
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+    .footer .footer-wrapper .footer-right .ft-home{
+        flex-basis: 44%;
+    }
+    .footer .footer-wrapper .footer-right .ft-about{
+        flex-basis: 44%;
+    }
+    .footer .footer-wrapper .footer-right .ft-resources{
+        flex-basis: 44%;
+        margin-left: 0;
+    }
+    
+    .footer .footer-wrapper .footer-right .ft-tutorial{
+        flex-basis: 44%;
+        margin-left: 0;
+    }
+}

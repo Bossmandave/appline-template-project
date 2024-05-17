@@ -1,0 +1,110 @@
+.how-wrapper h1,h2,h3,h4{
+    margin: 0;
+}
+.how-wrapper{
+    position: relative;
+    padding-top: 100px;
+}
+.how-wrapper p{
+    margin: 0;
+}
+.how-wrapper .how-header{
+    text-align: center;
+}
+
+.how-wrapper .how-header h1{
+    font-size: 2.75rem;
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+.how-wrapper .how-header p{
+    font-size: 1.1rem;
+    color: rgb(121 128 138);
+    width: 750px;
+    margin: 0 auto;
+}
+.how-wrapper .how-section{
+    margin: 70px 70px;
+    padding: 50px 10px;
+    border-radius: 20px;
+    background-color: var(--section-bg-color);
+    box-shadow: 0px 1px 5px rgba(45, 74, 170, 0.14);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.how-wrapper .how-section .features{
+    flex-basis: 305px;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.how-section .features .how-logo{
+    color: var(--features-logo-color);
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--features-sect-color);
+    margin-bottom: 20px;
+    z-index: 22;
+    transition: .2s;
+}
+
+.features .how-logo:hover{
+    background-color: rgb(112 131 245);
+    color: white;
+}
+.how-wrapper .backg{
+    position: absolute;
+    bottom: -600px;
+    left: 0;
+    z-index: -2;
+}
+.how-section .features h2{
+    font-size: 1.7rem;
+    margin: 20px 0;
+    font-weight: 500;
+}
+.how-section .features p{
+    color: rgb(121 128 138);
+    font-size: 1.07rem;
+    font-weight: 400;
+}
+
+
+@media (max-width:1280px){
+    .how-wrapper .how-section{
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .how-wrapper .how-section .features{
+        flex-basis: 250px;
+    }
+}
+@media(max-width:769px){
+    .how-wrapper .how-header h1{
+        width: 90%;
+        font-size: 2.5rem;
+    }
+    .how-wrapper .how-header p{
+        width: 95%;
+    }
+    .how-wrapper .backg{
+        display: none;
+    }
+}
+
+@media(max-width: 586px){
+    .how-wrapper .how-header h1{
+        font-size: 2.2rem;
+    }
+    .how-wrapper .how-header p{
+        font-size: 1.07rem;
+    }
+}

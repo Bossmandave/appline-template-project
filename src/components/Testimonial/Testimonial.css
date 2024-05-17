@@ -1,0 +1,99 @@
+.testimonial-wrapper{
+    position: relative;
+    padding: 100px 0;
+}
+.testimonial-wrapper p{
+    margin: 0;
+}
+.testimonial-wrapper .testimonial-header{
+    text-align: center;
+}
+
+.testimonial-wrapper .testimonial-header h1{
+    font-size: 2.75rem;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+.testimonial-wrapper .testimonial-header p{
+    font-size: 1.1rem;
+    color: rgb(121 128 138);
+    width: 75%;
+    margin: 0 auto;
+}
+
+.testimonial-section{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+}
+.testimonial-section .testimonial-card{
+    box-shadow: 2px 5px 5px rgba(45, 74, 170, 0.14);
+    border-radius: .4rem;
+    flex-basis: 480px;
+    padding: 35px 30px;
+    background-color: var(--section-bg-color);
+}
+.testimonial-section .testimonial-card hr{
+    opacity: .2;
+}
+.testimonial-section .testimonial-card p{
+    color: rgb(121 128 138);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.testimonial-section .userinfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.testimonial-section .userinfo .user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.testimonial-section .user-detail h3{
+    font-weight: 500;
+    font-size: 1.09rem;
+    color: var(--primary-color);
+}
+
+.testimonial-section .user-detail h4{
+    color:  rgb(121 128 138);
+    font-weight: 400;
+}
+.testimonial-section .user-rating h3{
+    font-weight: 400;
+    font-size: 1.07rem;
+    color: var(--primary-color);
+}
+
+
+@media(max-width:769px){
+    .testimonial-wrapper .testimonial-header h1{
+        width: 90%;
+        font-size: 2.5rem;
+    }
+    .testimonial-wrapper .testimonial-header p{
+        width: 95%;
+    }
+    .testimonial-section{
+       margin-left: 11px;
+       margin-right: 11px;
+    }
+}
+
+@media(max-width: 586px){
+    .testimonial-wrapper .testimonial-header h1{
+        font-size: 2.2rem;
+    }
+    .testimonial-wrapper .testimonial-header p{
+        font-size: 1.07rem;
+    }
+}

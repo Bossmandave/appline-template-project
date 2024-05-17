@@ -1,0 +1,209 @@
+.cta h4,h5{
+    margin: 0;
+}
+
+
+.cta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 150px;
+}
+.cta .leftbg{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cta-wrapper{
+    width: 84%;
+    box-shadow:  0px 1px 5px rgba(45, 74, 170, 0.14);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 50px 0px 0 0px;
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    isolation: isolate;
+    background-color: var(--section-bg-color);
+}
+
+.cta-wrapper #rightbg{
+    position: absolute;
+    top: -400px;
+    right: -150px;
+    z-index: -222;
+}
+.cta-wrapper #leftbg{
+    position: absolute;
+    bottom: -700px;
+    left: -130px;
+    z-index: -222;
+}
+
+.cta-wrapper .cta-note{
+    margin-right: 50px;
+    padding: 0 40px;
+}
+
+.cta-wrapper .cta-note h1{
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    width: 500px;
+}
+
+.cta-wrapper .cta-note p{
+    color: rgb(121 128 138);
+    width: 550px;
+    font-size: 1.1rem;
+}
+.cta-wrapper .image{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 400px;
+}
+
+.cta-wrapper .image .round{
+    width: 428px;
+    height: 428px;
+    background-image: linear-gradient(120.12deg, #FF8FE8 0%, #FFC960 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: -39;
+}
+
+.cta-wrapper .image .top{
+    position: absolute;
+    top: 0;
+    right: -10px;
+}
+.cta-wrapper .image .bottom{
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+}
+
+.cta-note .buttons{
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    gap: 20px;
+}
+
+.cta-note .buttons .btn{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 17px;
+    border-radius: .375rem;
+    color: white;
+    transition: .1s;
+    cursor: pointer;
+}
+.cta-note .buttons .btn:hover{
+    opacity: .9;
+}
+.cta-note .buttons .btn1 h5{
+    color: white;
+    opacity: .7;
+    font-size: .85rem;
+    font-weight: 500;
+}
+.cta-note .buttons .btn h4{
+    color:rgb(24 28 49 ) ;
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: white;
+}
+.cta-note .buttons .btn1{
+    background-color: rgb(112 131 245);
+}
+.cta-note .buttons .btn2{
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+.cta-note .buttons .btn2 h4{
+    color: var(--bg-color);
+}
+.cta-note .buttons .btn2 h5{
+    color: rgb(121 128 138);
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+
+@media (max-width: 1280px){
+    .cta-wrapper .cta-note{
+        text-align: center;
+        margin-right: 0;
+        padding: 0 20px;
+    }
+    .cta-note .buttons{
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width:769px){
+    .cta-wrapper{
+        width: 93%;
+    }
+    .cta-wrapper .cta-note h1{
+        font-size: 2.3rem;
+        width: 100%;
+    }
+    
+    .cta-wrapper .cta-note p{
+        width: 100%;
+        font-size: 1.1rem;
+    } 
+}
+
+@media (max-width:586px){
+    .cta-wrapper .cta-note h1{
+        font-size: 2rem;
+    }
+    
+    .cta-wrapper .cta-note p{
+        font-size: 1rem;
+    } 
+    .cta-wrapper .image .round{
+        width: 370px;
+        height: 370px;
+        top: 49%;
+        left: 50%;
+    }
+    .cta-note .buttons .btn h5{
+        font-size: .75rem;
+    }
+    .cta-note .buttons .btn h4{
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width:425px){
+    .cta-wrapper .image .round{
+        width: 330px;
+        height: 330px;
+        top: 49%;
+        left: 49.8%;
+    }
+    
+    .cta-wrapper .image .top{
+        top: 0;
+        right: 0px;
+    }
+    .cta-wrapper .image .bottom{
+        left: 10px;
+    }
+}

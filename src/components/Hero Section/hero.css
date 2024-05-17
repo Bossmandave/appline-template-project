@@ -1,0 +1,211 @@
+/* 
+.hero{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 120px 0;
+} */
+.hero{
+    display: grid;
+    grid-template-columns: repeat(auto-fit ,minmax(513px, 1fr));
+    padding: 120px 0;
+}
+
+.hero-note-wrapper{
+    align-self: center;
+    justify-self: center;
+}
+
+.hero-note{
+    padding: 50px 0;
+    justify-items: center;
+    align-self: center;
+    justify-self: center;
+    padding-left: 70px;
+}
+.hero-note h3{
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 20px;
+}
+.hero-note h1{
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+.hero-note span{
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(55.15deg, #8EA5FE -7.09%, #BEB3FD 51.72%, #90D1FF 101.48%);
+}
+.hero-note p{
+    color: rgb(121 128 138 );
+    font-size: 1.05rem;
+}
+.hero .hero-links{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.hero .hero-links .download a{
+    padding: 20px 40px;
+    text-decoration: none;
+    color: var(--bg-color);
+    font-size: 18px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    transition: all .2s ;
+}
+.hero .hero-links a:hover{
+    opacity: .9;
+}
+
+.hero .hero-links .hero-video{
+    text-decoration: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    transition: all .2s;
+}
+.hero .hero-links .hero-video:hover{
+    color: rgb(112 131 245 );
+}
+.hero .hero-links .hero-video .video-icon{
+    font-size: 4rem;
+}
+
+.hero .hero-links .hero-video .side h4{
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.15rem;
+    margin-top: 10px;
+}
+.hero .hero-links .hero-video .side h5{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.hero-image{
+    position: relative;
+    align-self: center;
+    justify-self: center;
+}
+.hero-image .round{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    border-radius: 99999px;
+    background-image: linear-gradient(55.15deg, #8EA5FE -7.09%, #BEB3FD 51.72%, #90D1FF 101.48%);
+    z-index: -22;
+    transform: translate(-50% , -50%);
+}
+
+
+@media (max-width: 1200px){
+    .hero-note{
+        padding-left: 40px;
+    }
+    .hero-note h3{
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    .hero-note h1{
+        font-size: 2.8rem;
+    }
+    .hero .hero-links{
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 1028px){
+    .hero-note{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-note h3{
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    .hero-note h1{
+        font-size: 3.6rem;
+    }
+    .hero .hero-links{
+        gap: 1rem;
+    }
+    .hero-note p{
+        font-size: 1.25rem;
+    }
+}
+@media (max-width: 769px){
+    .hero-note{
+        width: 90%;
+        padding-left: 0;
+        margin: 0 auto;
+    }
+    .hero-note h3{
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+    .hero-note h1{
+        font-size: 2.6rem;
+    }
+    .hero-note p{
+        font-size: 1.1rem;
+        width: 85%;
+    }
+}
+
+/* remaimig for 586px */
+@media (max-width: 586px){
+    .hero-image .round{
+        width: 400px;
+        height: 400px;
+        top: 170px;
+    }
+    .hero-note{
+        width: 95%;
+        padding-left: 5px;
+        margin: 0 auto;
+    }
+    .hero{
+        display: grid;
+        grid-template-columns: repeat(auto-fit ,minmax(313px, 1fr));
+        padding: 70px 0;
+    }
+    .hero-note h3{
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    .hero-note h1{
+        font-size: 2.05rem;
+    }
+    .hero-note p{
+        font-size: 1.06rem;
+        width: 85%;
+    }
+}
+
+@media (max-width: 500px){
+    .hero .hero-links .hero-video{
+        margin-top: 20px;
+        gap: 1.2rem;
+    }
+    .hero-image .round{
+        width: 350px;
+        height: 350px;
+        top: 140px;
+    }
+}

@@ -1,0 +1,225 @@
+/* code for sticky nav */
+nav{
+    position: relative;
+}
+nav.fixed{
+    position: sticky;
+    top: 0;
+    
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow:  0px 1px 5px rgba(45, 74, 170, 0.14);
+    z-index: 33;
+    transition: all .3s ease-out ;
+}
+/********************* */
+
+
+.nav-wrapper{
+    padding: 10px 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-wrapper .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-wrapper .nav-links ul{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style-type: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+.nav-wrapper .nav-links ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-wrapper .nav-links ul .link{
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all .2s ;
+}
+
+
+.nav-wrapper .sign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.nav-wrapper .sign .sign-in .link{
+    text-decoration: none;
+    color:var(--primary-color);
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: all .2s ;
+}
+
+.nav-wrapper .btn{
+    color: white;
+    background-color: rgb(112 131 245 );
+    border: none;
+    font-size: 1.05rem;
+    padding: 13px 30px;
+    border-radius: 5px;
+    transition: all .2s ;
+    margin: 0;
+}
+.nav-wrapper li .link:hover, .nav-wrapper .sign .sign-in .link:hover,.nav-wrapper .dropdown .link:hover{
+    color: rgb(112 131 245 );
+}
+.nav-wrapper .btn:hover{
+    opacity: .9;
+}
+
+.nav-wrapper .menu{
+    font-size: 29px;
+    color: var(--primary-color);
+    display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.nav-wrapper .menu-list{
+    position: absolute;
+    top: 0px;
+    right: -300px;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    background-color: var(--modal-bg-color);
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    padding: 50px 0;
+    justify-content: center;
+    display: none;
+    transition: all 3s ;
+}
+.nav-wrapper .menu-list .close{
+    font-size: 30px;
+    color: var(--primary-color);
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.nav-wrapper .menu-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    list-style-type: none;
+    font-size: 1.3rem;
+    font-weight: 600; 
+}
+
+.nav-wrapper .menu-list .link{
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all .2s ;
+}
+
+.nav-wrapper .dropdown{
+    z-index: 33;
+    background-color: var(--bg-color);
+    position: absolute;
+    top: 70px;
+    right: 23%;
+    width: 170px;
+    /* border: 1px solid black; */
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 10px;
+    box-shadow: .5px .5px 5px gray;
+    display: none;
+}
+.nav-wrapper .dropdown .link{
+    text-decoration: none;
+    color:var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all .2s ;
+}
+.nav-wrapper .dropdown .items{
+    margin-bottom: 20px;
+}
+.nav-wrapper  .menu-list .menu-dropdown{
+    z-index: 33;
+    background-color: transparent;
+    position: absolute;
+    top: 390px;
+    right: 10px;
+    left: 0;
+    width: 100px;
+    margin: 0 auto;
+    padding-left: 50px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: start; 
+    text-align: center; 
+    display: none;
+}
+.nav-wrapper .menu-dropdown .link{
+    text-decoration: none;
+    color:var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all .2s ;
+    
+}
+.nav-wrapper .menu-dropdown .items{
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1280px){
+    .nav-wrapper{
+        padding: 10px;
+    }
+    
+}
+@media(max-width: 1028px){
+    .nav-wrapper .nav-links ul{
+        display: none;
+    }
+    .nav-wrapper .menu{
+        display: block;
+    }
+    .nav-wrapper .menu-list{
+        display: none;
+    }
+    .nav-wrapper .menu-list ul{
+        font-size: 1.2rem;
+        font-weight: 500; 
+    }
+}
+@media (max-width: 769px){
+    .nav-wrapper .btn{
+        padding: 10px 25px;
+    }
+    .nav-wrapper .menu-list ul{
+        font-size: 1.1rem;
+        font-weight: 500; 
+    }
+    
+}
+@media (max-width: 586px){
+    .nav-wrapper .sign .link{
+        display: none;
+    }
+}
