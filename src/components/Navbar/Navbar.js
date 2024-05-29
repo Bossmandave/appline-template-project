@@ -8,7 +8,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import DarkMode from '../../utils/Dark Mode/darkmode';
 
 export default function Navbar(){
-    const[show , setShow] = useState(true);
+    const[show , setShow] = useState(false)
     const[fix , setFix] = useState(false)
     const [logo ,  setLogo] = useState(false)
 
@@ -28,9 +28,27 @@ export default function Navbar(){
     window.addEventListener("scroll" , setFixed)
     // zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 
-    //  ***********Code for Logo
-   
-    // **************************
+
+    let dropdown = <div className="dropdown">
+            <div className="items">
+                <Link to="" className="link">Blog Grids</Link>
+            </div>
+            <div className="items">
+                <Link to="" className="link">Blog Details</Link>
+            </div>
+            <div className="items">
+                <Link to="/error404" className="link">404 Error</Link>
+            </div>
+            <div className="items">
+                <Link to="/signin" className="link">Sign In</Link>
+            </div>
+            <div className="items">
+                <Link to="/signup" className="link">Sign Up</Link>
+            </div>
+
+        </div>
+
+
     let menuDropdown = <div className="menu-dropdown">
     <div className="items">
         <Link to="" className="link">Blog Grids</Link>
@@ -67,9 +85,14 @@ export default function Navbar(){
         function handleDisplay(){
             setDrop((display)=> !display)
         }
-
+        // for menu section page drop
         function DropOtherList(){
             setPageDrop(drop => !drop)
+        }
+
+        // for full screen page drop
+        function pageDisplay(){
+            setShow(show => !show)
         }
 
     useEffect(()=>{
@@ -86,23 +109,7 @@ export default function Navbar(){
         }
         window.addEventListener("change" , CheckBodyColor)
         window.addEventListener("load" , CheckBodyColor)
-        window.addEventListener("click" , CheckBodyColor)
-        //********** Dropdown code
-        const dropdown = document.querySelector(".dropdown");
-        const drop = document.querySelector(".drop");
-        
-        function CheckDisplay(e){
-            e.preventDefault();
-            if(show){
-                dropdown.style.display = "block";
-                setShow(false)
-            }
-            else{
-                dropdown.style.display = "none";
-                setShow(true)
-            }
-        }
-        drop.addEventListener('click', CheckDisplay)        
+        window.addEventListener("click" , CheckBodyColor)      
     },)
     return(
         <>  
@@ -117,13 +124,10 @@ export default function Navbar(){
                             <li><AnchorLink href='#about'  className="link">About</AnchorLink></li>
                             <li><AnchorLink href ="#how" className="link">How it Works</AnchorLink></li>
                             <li><AnchorLink href="#contact" className="link">Support</AnchorLink></li>
-                            <li><Link to="" className="drop link">Pages <IconDown/></Link></li>
+                            <li><Link to="" onClick={pageDisplay} className="drop link">Pages <IconDown/></Link></li>
                         </ul>
-                        
                     </div>
-
                     
-
                     <div className='sign'>
 
                         {/* import dark mode */}
@@ -141,25 +145,8 @@ export default function Navbar(){
                         </button>
                     </div>
                     {drop ? menuDrop : null}
+                    {show ? dropdown: null}
                     
-                    <div className="dropdown">
-                        <div className="items">
-                            <Link to="" className="link">Blog Grids</Link>
-                        </div>
-                        <div className="items">
-                            <Link to="" className="link">Blog Details</Link>
-                        </div>
-                        <div className="items">
-                            <Link to="/error404" className="link">404 Error</Link>
-                        </div>
-                        <div className="items">
-                            <Link to="/signin" className="link">Sign In</Link>
-                        </div>
-                        <div className="items">
-                            <Link to="/signup" className="link">Sign Up</Link>
-                        </div>
-
-                    </div>
                 </div>
             </nav>
             <Outlet/>

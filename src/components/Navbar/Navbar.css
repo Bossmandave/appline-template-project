@@ -150,7 +150,6 @@ nav.fixed{
     align-items: start;
     border-radius: 10px;
     box-shadow: .5px .5px 5px gray;
-    display: none;
 }
 .nav-wrapper .dropdown .link{
     text-decoration: none;
