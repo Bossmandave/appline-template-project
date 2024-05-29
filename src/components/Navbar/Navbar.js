@@ -12,6 +12,10 @@ export default function Navbar(){
     const[fix , setFix] = useState(false)
     const [logo ,  setLogo] = useState(false)
 
+
+    const[drop , setDrop] = useState(false)
+    const[pageDrop, setPageDrop] = useState(false)
+
     //xxxxxxxxxxxxxxxx Sticky Navbar code
     function setFixed(){
         if(window.scrollY >= 90){
@@ -27,6 +31,46 @@ export default function Navbar(){
     //  ***********Code for Logo
    
     // **************************
+    let menuDropdown = <div className="menu-dropdown">
+    <div className="items">
+        <Link to="" className="link">Blog Grids</Link>
+    </div>
+    <div className="items">
+        <Link to="" className="link">Blog Details</Link>
+    </div>
+    <div className="items">
+        <Link to="/error404" className="link">404 Error</Link>
+    </div>
+    <div className="items">
+        <Link to="/signin" className="link">Sign In</Link>
+    </div>
+    <div className="items">
+        <Link to="/signup" className="link">Sign Up</Link>
+    </div>
+
+    </div>
+    let menuDrop = <div className="menu-list">
+        <ul>
+            <li><AnchorLink href='#features' className="link">Features</AnchorLink></li>
+            <li><AnchorLink href='#about'  className="link">About</AnchorLink></li>
+            <li><AnchorLink href ="#how" className="link">How it Works</AnchorLink></li>
+            <li><AnchorLink href="#contact" className="link">Support</AnchorLink></li>
+            <li><button onClick={DropOtherList} className="menu-drop">Pages <IconDown/></button></li>
+        </ul>
+        <button className="close" onClick={handleDisplay}>
+            <IconClose/>
+        </button>
+        {pageDrop ? menuDropdown : null}
+        </div>
+
+    //    function to Open and Close Modal
+        function handleDisplay(){
+            setDrop((display)=> !display)
+        }
+
+        function DropOtherList(){
+            setPageDrop(drop => !drop)
+        }
 
     useEffect(()=>{
 
@@ -58,58 +102,7 @@ export default function Navbar(){
                 setShow(true)
             }
         }
-        drop.addEventListener('click', CheckDisplay)
-        // ****************************
-
-        //******** Hamburger Dropdown
-        const menuDropdown = document.querySelector(".menu-dropdown");
-        const menuDrop = document.querySelector(".menu-drop");
-    
-        function DropPanel(e){
-            e.preventDefault();
-            if(show){
-                menuDropdown.style.display = "block";
-                setShow(false)
-            }
-            else{
-                menuDropdown.style.display = "none";
-                setShow(true)
-            }
-        }
-        menuDrop.addEventListener('click', DropPanel)
-        // ******************************
-
-        // ************** Open Modal
-        const menuList = document.querySelector(".menu-list"); 
-        const menuButton = document.querySelector(".menu")
-        const OpenModal =()=>{
-            if(menuList.style.right === "-300px"){
-                menuList.style.right ="0px"
-                menuList.style.display ="block"
-            }
-           else{
-            menuList.style.right = "-300px"
-            menuList.style.display ="none"
-           }   
-        }
-        menuButton.addEventListener('click', OpenModal)
-        //xxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz
-
-
-        //xxxxxxxxxxxxxxxx Close Modal
-        const closeButton = document.querySelector(".close")
-        const CloseModal =()=>{
-            if(menuList.style.right === "0px"){
-                menuList.style.right ="-300px"
-            }
-           else{
-            menuList.style.right = "-300px"
-            menuList.style.display ="none"
-           }     
-        }
-        closeButton.addEventListener('click', CloseModal)
-        // xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        
+        drop.addEventListener('click', CheckDisplay)        
     },)
     return(
         <>  
@@ -143,42 +136,12 @@ export default function Navbar(){
                         <div className='sign-up'>
                             <Link to="/signup" className="link"><button className='btn btn1'>Sign Up</button></Link>                  
                         </div>
-                        <button className="menu">
+                        <button className="menu" onClick={handleDisplay}>
                             <IconHamburgerMenu/>
                         </button>
                     </div>
-
-                    <div className="menu-list">
-                        <ul>
-                            <li><AnchorLink href='#features' className="link">Features</AnchorLink></li>
-                            <li><AnchorLink href='#about'  className="link">About</AnchorLink></li>
-                            <li><AnchorLink href ="#how" className="link">How it Works</AnchorLink></li>
-                            <li><AnchorLink href="#contact" className="link">Support</AnchorLink></li>
-                            <li><Link to="" className="menu-drop link">Pages <IconDown/></Link></li>
-                        </ul>
-                        <button className="close">
-                            <IconClose/>
-                        </button>
-                        <div className="menu-dropdown">
-                            <div className="items">
-                                <Link to="" className="link">Blog Grids</Link>
-                            </div>
-                            <div className="items">
-                                <Link to="" className="link">Blog Details</Link>
-                            </div>
-                            <div className="items">
-                                <Link to="/error404" className="link">404 Error</Link>
-                            </div>
-                            <div className="items">
-                                <Link to="/signin" className="link">Sign In</Link>
-                            </div>
-                            <div className="items">
-                                <Link to="/signup" className="link">Sign Up</Link>
-                            </div>
-
-                        </div>
-                    </div>
-
+                    {drop ? menuDrop : null}
+                    
                     <div className="dropdown">
                         <div className="items">
                             <Link to="" className="link">Blog Grids</Link>
