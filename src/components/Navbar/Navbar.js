@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { Outlet, Link } from "react-router-dom";
-import imglogo from '../../assets/svg/img-logo.svg'
-import imglogowhite from '../../assets/svg/logo-white.svg'
-import './Navbar.css';
-import  { IconClose, IconDown, IconHamburgerMenu} from '../icons/icons';
-import AnchorLink from "react-anchor-link-smooth-scroll";
-import DarkMode from '../../utils/Dark Mode/darkmode';
+import React, { useEffect, useState } from 'react' // import state management
+import { Outlet, Link } from "react-router-dom"; // import router for page routing
+import imglogo from '../../assets/svg/img-logo.svg' // import black logo
+import imglogowhite from '../../assets/svg/logo-white.svg' //import white logo
+import './Navbar.css';   // import CSS code
+import  { IconClose, IconDown, IconHamburgerMenu} from '../icons/icons'; //import icons from icons file
+import AnchorLink from "react-anchor-link-smooth-scroll"; //import AnchorLink for in page navigation
+import DarkMode from '../../utils/Dark Mode/darkmode'; //import Darkmode component
 
 export default function Navbar(){
-    const[show , setShow] = useState(false)
-    const[fix , setFix] = useState(false)
-    const [logo ,  setLogo] = useState(false)
-
-
-    const[drop , setDrop] = useState(false)
-    const[pageDrop, setPageDrop] = useState(false)
+    const[fix , setFix] = useState(false)  //state to handle sticky navbar
+    const [logo ,  setLogo] = useState(false) // state to handle dynamic logo
+    const[display , setDisplay] = useState(false) // state to handle menu bar display list
+    const[pageDrop, setPageDrop] = useState(false) // state to handle page dropdown list
 
     //xxxxxxxxxxxxxxxx Sticky Navbar code
     function setFixed(){
@@ -26,10 +23,10 @@ export default function Navbar(){
         }
     }
     window.addEventListener("scroll" , setFixed)
-    // zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 
-
-    let dropdown = <div className="dropdown">
+    //code for desktop dropdown
+    let dropdown =
+    <div className="dropdown">
             <div className="items">
                 <Link to="" className="link">Blog Grids</Link>
             </div>
@@ -45,29 +42,31 @@ export default function Navbar(){
             <div className="items">
                 <Link to="/signup" className="link">Sign Up</Link>
             </div>
+    </div>
 
+    //code for menubar DropdownList
+    let menuDropdown = 
+    <div className="menu-dropdown">
+        <div className="items">
+            <Link to="" className="link">Blog Grids</Link>
         </div>
-
-
-    let menuDropdown = <div className="menu-dropdown">
-    <div className="items">
-        <Link to="" className="link">Blog Grids</Link>
-    </div>
-    <div className="items">
-        <Link to="" className="link">Blog Details</Link>
-    </div>
-    <div className="items">
-        <Link to="/error404" className="link">404 Error</Link>
-    </div>
-    <div className="items">
-        <Link to="/signin" className="link">Sign In</Link>
-    </div>
-    <div className="items">
-        <Link to="/signup" className="link">Sign Up</Link>
+        <div className="items">
+            <Link to="" className="link">Blog Details</Link>
+        </div>
+        <div className="items">
+            <Link to="/error404" className="link">404 Error</Link>
+        </div>
+        <div className="items">
+            <Link to="/signin" className="link">Sign In</Link>
+        </div>
+        <div className="items">
+            <Link to="/signup" className="link">Sign Up</Link>
+        </div>
     </div>
 
-    </div>
-    let menuDrop = <div className="menu-list">
+    //code for menubar drop list
+    let menuDrop = 
+    <div className="menu-list">
         <ul>
             <li><AnchorLink href='#features' className="link">Features</AnchorLink></li>
             <li><AnchorLink href='#about'  className="link">About</AnchorLink></li>
@@ -79,24 +78,19 @@ export default function Navbar(){
             <IconClose/>
         </button>
         {pageDrop ? menuDropdown : null}
-        </div>
+    </div>
 
-    //    function to Open and Close Modal
-        function handleDisplay(){
-            setDrop((display)=> !display)
-        }
-        // for menu section page drop
-        function DropOtherList(){
-            setPageDrop(drop => !drop)
-        }
+    //function to Open and Close Modal
+    function handleDisplay(){
+        setDisplay((display)=> !display)
+    }
+    // for dropdown list drop
+    function DropOtherList(){
+        setPageDrop(drop => !drop)
+    }
 
-        // for full screen page drop
-        function pageDisplay(){
-            setShow(show => !show)
-        }
-
+    // to check the theme and chnage the appline logo accordingly
     useEffect(()=>{
-
         function CheckBodyColor(){
             const selectedTheme = localStorage.getItem("selectedTheme")
       
@@ -107,13 +101,14 @@ export default function Navbar(){
                 setLogo(false)
             }
         }
-        window.addEventListener("change" , CheckBodyColor)
         window.addEventListener("load" , CheckBodyColor)
+        window.addEventListener("change" , CheckBodyColor)
         window.addEventListener("click" , CheckBodyColor)      
     },)
+    
     return(
         <>  
-            <nav className={fix ? "fixed": ""}>
+            <nav className={fix ? "fixed": ""}> 
                 <div className ="nav-wrapper">
                     <div className="logo">
                         <Link to="/"><img src={logo ? imglogowhite : imglogo} className="nav-logo" alt="logo" /></Link>
@@ -124,15 +119,12 @@ export default function Navbar(){
                             <li><AnchorLink href='#about'  className="link">About</AnchorLink></li>
                             <li><AnchorLink href ="#how" className="link">How it Works</AnchorLink></li>
                             <li><AnchorLink href="#contact" className="link">Support</AnchorLink></li>
-                            <li><Link to="" onClick={pageDisplay} className="drop link">Pages <IconDown/></Link></li>
+                            <li><Link to="" onClick={DropOtherList} className="drop link">Pages <IconDown/></Link></li>
                         </ul>
                     </div>
                     
                     <div className='sign'>
-
-                        {/* import dark mode */}
-                        <DarkMode/>
-                        {/* ************ */}
+                        <DarkMode/> {/*  import dark mode component */}
 
                         <div className='sign-in'>
                             <Link to="/signin" className="link">Sign In</Link>                      
@@ -144,8 +136,8 @@ export default function Navbar(){
                             <IconHamburgerMenu/>
                         </button>
                     </div>
-                    {drop ? menuDrop : null}
-                    {show ? dropdown: null}
+                    {display ? menuDrop : null} {/* conditionally render hamburger menu drop list */}
+                    {pageDrop ? dropdown: null} {/* conditionally render page dropdown */}
                     
                 </div>
             </nav>
@@ -153,3 +145,5 @@ export default function Navbar(){
         </>
     )
 }
+
+

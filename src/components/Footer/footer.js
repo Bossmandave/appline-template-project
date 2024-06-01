@@ -20,8 +20,8 @@ export default function Footer(){
             setLogo(false)
         }
     }
-    window.addEventListener("change" , CheckBodyColor)
     window.addEventListener("load" , CheckBodyColor)
+    window.addEventListener("change" , CheckBodyColor)
     window.addEventListener("click" , CheckBodyColor)
     return(
         <footer className="footer">

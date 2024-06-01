@@ -1,34 +1,20 @@
-import React, { useEffect } from 'react'
+import React, {useState } from 'react'
 import './Pricing.css';
 
 
 
 export default function Pricing(){
+    const[price1, setPrice1] = useState(true)
+    const[price2, setPrice2] = useState(true)
+    const[price3, setPrice3] = useState(true)
+    const [time , setTime] = useState(true)
 
-    useEffect(()=>{
-        let switchs = document.querySelector(".switch")
-        switchs.addEventListener("click", ()=>{
-        let price1 = document.querySelector(".one");
-        let price2 = document.querySelector(" .two");
-        let price3 = document.querySelector(" .three");
-        let slider = document.querySelector(".slider");
-        let slidercolor = window.getComputedStyle(slider , '::before')
-        
-        if(slidercolor.left === "4px"){
-            slider.style.setProperty("--left", "23px")
-            price1.innerHTML="<span>$0</span>/per year"
-            price2.innerHTML="<span>$408</span>/per year"
-            price3.innerHTML="<span>$568</span>/per year"
-        }
-        else{
-            slider.style.setProperty("--left", "4px")
-            price1.innerHTML="<span>$0</span>/per month"
-            price2.innerHTML="<span>$35</span>/per month"
-            price3.innerHTML="<span>$59</span>/per month"
-        }
-    })
-
-    })
+    function handlePlan(){
+        setTime((time) => !time )
+        setPrice1((price) => !price )
+        setPrice2((price) => !price )
+        setPrice3((price) => !price )
+    }
     
     return(
         <>
@@ -42,7 +28,7 @@ export default function Pricing(){
                     <h4>Monthly</h4>
                     
                     <label htmlFor="check" className="switch">
-                        <input type="checkbox" id="check"/>
+                        <input type="checkbox" id="check" onClick={handlePlan}/>
                         <span className="slider"></span>
                     </label>
                     <h4>Annually</h4>
@@ -51,7 +37,7 @@ export default function Pricing(){
                     <div className="price-card">
                         <h2>Free</h2>
                         <p>Lorem Ipsum is simply dummythe.</p>
-                        <p className="one"><span>$0</span> /month</p>
+                        <p className="one"><span>{price1 ? "$0" : "$0"}</span> {time? "/month" : "/year"}</p>
                         <hr/>
                         <h3>✔️ 60-day chat history</h3>
                         <h3>✔️ 15 GB cloud storage</h3>
@@ -64,7 +50,7 @@ export default function Pricing(){
                         <h4>Most Popular</h4>
                         <h2>Unlimited</h2>
                         <p>Lorem Ipsum is simply dummythe.</p>
-                        <p className="two"><span>$35</span> /month</p>
+                        <p className="two"><span>{price2 ? "$50" : "$149"}</span> {time? "/month" : "/year"}</p>
                         <hr/>
                         <h3>✔️ 60-day chat history</h3>
                         <h3>✔️ 15 GB cloud storage</h3>
@@ -76,7 +62,7 @@ export default function Pricing(){
                     <div className="price-card">
                         <h2>Business</h2>
                         <p>Lorem Ipsum is simply dummythe.</p>
-                        <p className="three"><span>$59</span> /month</p>
+                        <p className="three"><span>{price3 ? "$90" : "$230"}</span> {time? "/month" : "/year"}</p>
                         <hr/>
                         <h3>✔️ 60-day chat history</h3>
                         <h3>✔️ 15 GB cloud storage</h3>
