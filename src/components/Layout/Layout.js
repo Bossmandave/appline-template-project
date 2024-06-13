@@ -18,7 +18,7 @@ import Cta from "../cta/Cta";
 export default function Layout(){
     return(
         <>
-            <Navbar/>
+            <Navbar features="Features" about="About" how="How it Works" support="Support" pages="Pages >"/>
             <HeroSection/>
             <Features/>
             <About/>

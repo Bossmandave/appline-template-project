@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { IconMoonStarsFill, IconSun } from '../../components/icons/icons'
 import "./darkmode.css"
 
@@ -6,8 +5,7 @@ import "./darkmode.css"
 
 
 
-export default function DarkMode(){
-    const[Dmode , setDmode] = useState(false)
+export default function DarkMode({Dmode, setDmode}){
     const setDarkMode = ()=>{
             document.querySelector("body").setAttribute('data-theme' , "dark");
             localStorage.setItem("selectedTheme" , "dark")
