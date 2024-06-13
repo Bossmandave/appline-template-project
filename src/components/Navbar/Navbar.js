@@ -1,4 +1,4 @@
-import React, { useState } from 'react' // import state management
+import React, { useEffect, useState } from 'react' // import state management
 import { Outlet, Link } from "react-router-dom"; // import router for page routing
 import imglogo from '../../assets/svg/img-logo.svg' // import black logo
 import imglogowhite from '../../assets/svg/logo-white.svg' //import white logo
@@ -7,11 +7,11 @@ import  { IconClose, IconDown, IconHamburgerMenu} from '../icons/icons'; //impor
 import AnchorLink from "react-anchor-link-smooth-scroll"; //import AnchorLink for in page navigation
 import DarkMode from '../../utils/Dark Mode/darkmode'; //import Darkmode component
 
-export default function Navbar({features ,about , how, support, pages}){
+export default function Navbar({features, about , how , pages, support}){
     const[fix , setFix] = useState(false)  //state to handle sticky navbar
+    const [logo ,  setLogo] = useState(false) // state to handle dynamic logo
     const[display , setDisplay] = useState(false) // state to handle menu bar display list
     const[pageDrop, setPageDrop] = useState(false) // state to handle page dropdown list
-    const[Dmode , setDmode] = useState(false)// darkmode
 
     //xxxxxxxxxxxxxxxx Sticky Navbar code
     function setFixed(){
@@ -89,13 +89,29 @@ export default function Navbar({features ,about , how, support, pages}){
         setPageDrop(drop => !drop)
     }
 
+    // to check the theme and chnage the appline logo accordingly
+    useEffect(()=>{
+        function CheckBodyColor(){
+            const selectedTheme = localStorage.getItem("selectedTheme")
+      
+            if(selectedTheme === "dark"){
+                setLogo(true)
+            }
+            else if(selectedTheme === "light"){
+                setLogo(false)
+            }
+        }
+        window.addEventListener("load" , CheckBodyColor)
+        window.addEventListener("change" , CheckBodyColor)
+        window.addEventListener("click" , CheckBodyColor)      
+    },)
     
     return(
         <>  
             <nav className={fix ? "fixed": ""}> 
                 <div className ="nav-wrapper">
                     <div className="logo">
-                        <Link to="/"><img src={Dmode ? imglogowhite : imglogo} className="nav-logo" alt="logo" /></Link>
+                        <Link to="/"><img src={logo ? imglogowhite : imglogo} className="nav-logo" alt="logo" /></Link>
                     </div>
                     <div className='nav-links'>
                         <ul>
@@ -108,7 +124,7 @@ export default function Navbar({features ,about , how, support, pages}){
                     </div>
                     
                     <div className='sign'>
-                        <DarkMode Dmode={Dmode} setDmode={setDmode}/> {/*  import dark mode component */}
+                        <DarkMode/> {/*  import dark mode component */}
 
                         <div className='sign-in'>
                             <Link to="/signin" className="link">Sign In</Link>                      
